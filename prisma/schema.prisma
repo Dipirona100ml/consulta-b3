@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model StockExchange {
+  id            Int    @id @unique @default(autoincrement())
+  companyName   String
+  exchange      String @unique
+  paperQuantity String
+  exchangeMP    Float
+  exchangeLP    Float?
+}
